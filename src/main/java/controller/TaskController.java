@@ -83,11 +83,13 @@ public class TaskController {
             statement.setDate(6,new Date(task.getDeadline().getTime()));
             statement.setDate(7,new Date(task.getCreatedAt().getTime()));
             statement.setDate(8,new Date(task.getUpdatedAt().getTime()));
+            statement.setInt(9,task.getId());
+            
             
             statement.execute();
         
         } catch (Exception ex) {
-            throw new RuntimeException("Erro ao deletar a tarefa" + ex.getMessage(), ex);
+            throw new RuntimeException("Erro ao atualizar a tarefa" + ex.getMessage(), ex);
         }
                
                 
